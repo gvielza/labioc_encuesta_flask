@@ -7,32 +7,19 @@ class Conexion:
         self.conexion = sqlite3.connect(nombre_bd)
         self.cursor = self.conexion.cursor()
 
-    def crear_tabla_cliente(self):
+    def crear_tabla_usuarios(self):
         self.cursor.execute(
-            "CREATE TABLE IF NOT EXISTS clientes(dni INT, usuario TEXT,contrasenna TEXT)")
-
+            "CREATE TABLE IF NOT EXISTS usuarios( nombre TEXT,ciudad TEXT)")
         self.conexion.commit()
 
-    def agregar_cliente(self, dni, usuario, contrasenna):
-        self.cursor.execute("INSERT INTO clientes VALUES(?,?,?)",
-                            (dni, usuario, contrasenna))
-        self.conexion.commit()
+    def agregar_usuario(self, nombre, ciudad):
+        self.cursor.execute("INSERT INTO usuarios VALUES(?,?)", (nombre,ciudad))
 
-    def editar_cliente(self, dni, usuario, contrasenna):
-        self.cursor.execute(
-            "UPDATE cliente SET dni=?, usuario=?, contrasenna=? WHERE contrasenna=?",
-            (dni, usuario, contrasenna, dni))
         self.conexion.commit()
-
-    def mostrar_clientes(self):
-        self.cursor.execute("SELECT * FROM clientes")
+    def mostrar_usuarios(self):
+        self.cursor.execute("SELECT * FROM usuarios")
         clientes = self.cursor.fetchall()
         return clientes
-
-    def eliminar_cliente(self, dni):
-        self.cursor.execute("DELETE FROM clientes WHERE dni=?", (dni,))
-        self.conexion.commit()
-
     def cerrar_conexion(self):
         self.cursor.close()
         self.conexion.close()

@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de la Huello Hídrica </title>
+    <title>Calculadora de la Huella Hídrica </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
 </head>
 <body>
     <div class="container">
         <form action="/resultados" method="post">
-            <h2>Calculadora de la Huello Hídrica</h2>
+           <div class="image-container">
+        <img src="{{ url_for('static', filename='img/labioc.png') }}" alt="Logo de Labioc" id="logo">
+    </div>
+            <h2>Calculadora de la Huella Hídrica</h2>
 
-            <label for="nombre">Nombre/Apodo:</label>
+            <label for="nombre" class="label">Nombre/Apodo:</label>
             <input type="text" id="nombre" name="nombre" required>
 
-            <label for="ciudad">¿Dónde vivís?</label>
+            <label for="ciudad" class="label">¿Dónde vivís?</label>
             <select id="ciudad" name="ciudad" required>
                 <option value="" disabled selected>Selecciona tu ciudad</option>
                 <option value="caba">Ciudad Autónoma de Buenos Aires</option>
@@ -43,82 +46,90 @@
                 <option value="tucuman">Tucumán</option>
             </select>
 
-            <label >En tu vivienda, ¿qué tipo de canilla tenes?</label>
+            <label class="label">En tu vivienda, ¿qué tipo de canilla tenes?</label>
             <div class="radio-images" >
-                <label><input type="radio" name="canilla" value="foto1" >
+                <label><input type="radio" name="canilla" value="foto1" required>
                     <img src="{{ url_for('static', filename='img/foto1.jpg') }}" alt="" srcset=""></label>
                 <label><input type="radio" name="canilla" value="foto2">
                 <img src="{{ url_for('static', filename='img/foto2.jpg') }}" alt="" srcset=""></label>
             </div>
 
-            <label for="ducha">¿Cuántos minutos tardas en ducharte?</label>
+            <label for="ducha" class="label">¿Cuántos minutos tardas en ducharte?</label>
             <div class="number-input">
                 <button type="button" onclick="modifyValue('ducha', -1)">-</button>
-                <input type="number" id="ducha" name="ducha" value="10" min="0" >
+                <input type="number" id="ducha" name="ducha" value="10" min="0" required>
                 <button type="button" onclick="modifyValue('ducha', 1)">+</button>
             </div>
 
-            <label for="manos">¿Cuántos minutos dejas abierta la canilla cuando te lavas las manos?</label>
+            <label for="manos" class="label">¿Cuántos minutos dejas abierta la canilla cuando te lavas las manos?</label>
             <div class="number-input">
                 <button type="button" onclick="modifyValue('manos', -1)">-</button>
-                <input type="number" id="manos" name="manos" value="5" min="0" >
+                <input type="number" id="manos" name="manos" value="5" min="0" required>
                 <button type="button" onclick="modifyValue('manos', 1)">+</button>
             </div>
 
-            <label>Cuando te lavas los dientes… ¿cerras la canilla?</label>
+            <label class="label">Cuando te lavas los dientes… ¿cerras la canilla?</label>
             <div class="radio-group">
-                <label><input type="radio" name="dientes" value="si" > Si</label>
+                <label><input type="radio" name="dientes" value="si" required> Si</label>
                 <label><input type="radio" name="dientes" value="no"> No</label>
             </div>
 
-            <label>A la hora de lavar los platos…</label>
+            <label class="label">A la hora de lavar los platos…</label>
             <div class="radio-group">
-                <label><input type="radio" name="platos" value="1" > Abro y cierro la canilla</label>
+                <label><input type="radio" name="platos" value="1" required> Abro y cierro la canilla</label>
                 <label><input type="radio" name="platos" value="2"> Dejo abierta la canilla ya que es más fácil</label>
                 <label><input type="radio" name="platos" value="3"> Tengo lavavajilla</label>
             </div>
 
-            <label for="lavarropas">¿Cuántos lavarropas usas a la semana?</label>
+            <label for="lavarropas" class="label">¿Cuántos lavarropas usas a la semana?</label>
             <div class="number-input">
                 <button type="button" onclick="modifyValue('lavarropas', -1)">-</button>
-                <input type="number" id="lavarropas" name="lavarropas" value="1" min="0" >
+                <input type="number" id="lavarropas" name="lavarropas" value="1" min="0" required>
                 <button type="button" onclick="modifyValue('lavarropas', 1)">+</button>
             </div>
 
-            <label>¿En la mochila de tu inodoro tenes la opción de doble descarga?</label>
+            <label class="label">¿En la mochila de tu inodoro tenes la opción de doble descarga?</label>
             <div class="radio-group">
-                <label><input type="radio" name="descarga" value="si" > Si</label>
+                <label><input type="radio" name="descarga" value="si" required> Si</label>
                 <label><input type="radio" name="descarga" value="no"> No</label>
             </div>
 
-            <label>¿Tienes pérdidas de agua en las canillas de tu hogar?</label>
+            <label class="label">¿Tienes pérdidas de agua en las canillas de tu hogar?</label>
             <div class="radio-group">
-                <label><input type="radio" name="perdidas" value="si" > Si</label>
+                <label><input type="radio" name="perdidas" value="si" required> Si</label>
                 <label><input type="radio" name="perdidas" value="no"> No</label>
             </div>
 
-            <label for="coche">Si tenes coche… ¿cuántas veces lo lavas al mes?</label>
+            <label for="coche" class="label">Si tenes coche… ¿cuántas veces lo lavas al mes?</label>
             <div class="number-input">
                 <button type="button" onclick="modifyValue('coche', -1)">-</button>
-                <input type="number" id="coche" name="coche" value="0" min="0" >
+                <input type="number" id="coche" name="coche" value="0" min="0" required>
                 <button type="button" onclick="modifyValue('coche', 1)">+</button>
             </div>
+            <label class="label" >¿Cómo limpias la vereda o pasillos?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="vereda" value="1" required> Limpio directamente con el agua de la manguera sin cerrar la canilla</label>
+                <label><input type="radio" name="vereda" value="2"> Limpio con manguera pero voy cerrando la canilla</label>
+                <label><input type="radio" name="vereda" value="3"> Uso balde</label>
+                <label><input type="radio" name="vereda" value="0"> No uso agua para limpiar la vereda/no tengo vereda para limpiar</label>
 
-            <label for="ropa">Si hablamos de comprar ropa ¿Cuántas prendas te compras al año?</label>
+            </div>
+
+            <label for="ropa" class="label">Si hablamos de comprar ropa ¿Cuántas prendas te compras al año?</label>
             <div class="number-input">
                 <button type="button" onclick="modifyValue('ropa', -1)">-</button>
-                <input type="number" id="ropa" name="ropa" value="12" min="0" >
+                <input type="number" id="ropa" name="ropa" value="12" min="0" required>
                 <button type="button" onclick="modifyValue('ropa', 1)">+</button>
             </div>
 
-            <label>Alimentación - Indicar el consumo de carne a la semana</label>
+            <label class="label">Alimentación - Indicar el consumo de carne a la semana</label>
             <div class="meat-consumption">
                 <div class="meat-item">
 
                     <img src="{{ url_for('static', filename='img/vaca.png')}}" alt="Carne de vaca">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('vaca', -1)">-</button>
-                        <input type="number" id="vaca" name="vaca" value="0" min="0" >
+                        <input type="number" id="vaca" name="vaca" value="0" min="0" required>
                         <button type="button" onclick="modifyValue('vaca', 1)">+</button>
                     </div>
                 </div>
@@ -126,7 +137,7 @@
                     <img src="{{ url_for('static', filename='img/pollo.png')}}" alt="Carne de pollo">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('pollo', -1)">-</button>
-                        <input type="number" id="pollo" name="pollo" value="0" min="0" >
+                        <input type="number" id="pollo" name="pollo" value="0" min="0" required>
                         <button type="button" onclick="modifyValue('pollo', 1)">+</button>
                     </div>
                 </div>
@@ -134,7 +145,7 @@
                     <img src="{{ url_for('static', filename='img/cerdo.png')}}" alt="Carne de cerdo">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('cerdo', -1)">-</button>
-                        <input type="number" id="cerdo" name="cerdo" value="0" min="0" >
+                        <input type="number" id="cerdo" name="cerdo" value="0" min="0" required>
                         <button type="button" onclick="modifyValue('cerdo', 1)">+</button>
                     </div>
                 </div>

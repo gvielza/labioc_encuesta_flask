@@ -105,6 +105,20 @@ button[type="submit"]:hover {
 #nombre{
 width: 95%;
 }
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;  /* Ajusta el espacio debajo de la imagen si es necesario */
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    border-radius:70%;
+}
+
 .radio-images {
     display: flex;
     gap: 20px;
@@ -128,4 +142,7 @@ width: 95%;
 
 .radio-images input[type="radio"]:checked + img {
     border-color: #007bff;  /* Color del borde cuando está seleccionado */
+}
+.label{
+text-shadow: 1px 1px 2px #8ebdb6;
 }

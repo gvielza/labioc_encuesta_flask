@@ -28,27 +28,23 @@ def resultados():
     vaca= request.form['vaca']
     pollo= request.form['pollo']
     cerdo= request.form['cerdo']
+    vereda= request.form['vereda']
 
 
 
 
     conexion = Conexion("base_datos/usuarios.db")
-    conexion.crear_tabla_cliente()
-    #conexion.agregar_cliente(dni,usuario,contrasenna)
-    clientes = conexion.mostrar_clientes()
+    conexion.crear_tabla_usuarios()
+    conexion.agregar_usuario(nombre, ciudad)
+    usuarios=conexion.mostrar_usuarios()
+
     conexion.cerrar_conexion()
     return render_template('resultados.html', nombre=nombre,ciudad=ciudad,canilla=canilla,
-                           ducha=ducha
+                           ducha=ducha,vereda=vereda
                            ,manos=manos,dientes=dientes,platos=platos,lavarropas=lavarropas,descarga=descarga,
-                           perdidas=perdidas,coche=coche,ropa=ropa,vaca=vaca,pollo=pollo,cerdo=cerdo)
+                           perdidas=perdidas,coche=coche,ropa=ropa,vaca=vaca,pollo=pollo,cerdo=cerdo,usuarios=usuarios)
 
-@app.route('/nombre_provincia',methods=['GET'])
-def nombre_provincia():
-    return render_template('nombre_provincia.html')
-@app.route('/nombre1', methods=['POST'])
-def nombre1():
-    nombre1=request.form['nombre1']
-    return render_template('index.html', nombre1=nombre1)
+
 
 if __name__ == '__main__':
     app.run()

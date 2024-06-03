@@ -20,6 +20,27 @@
  <p>La vaca que tenes es {{ vaca }}.</p>
  <p>El pollo que tenes es {{ pollo }}.</p>
  <p>El cerdo que tenes es {{ cerdo }}.</p>
+<p>vereda : {{ vereda }}</p>
+
+<h2>Lista de Usuarios</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>ciudad</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario[0] }}</td>
+                    <td>{{ usuario[1] }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 </body>
 </html>
