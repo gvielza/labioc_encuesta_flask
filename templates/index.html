@@ -1,21 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Uso del Agua</title>
+    <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-<form action="/resultados" method="POST">
-    <label for="dni">dni:</label>
-        <input type="text" id="dni" name="dni">
-        <label for="usuario">Usuario:</label>
-         <input type="text" id="usuario" name="usuario">
-        <label for="contrasenna">Contraseña </label>
-        <input type="password" name="contrasenna" id="contrasenna" >
-        <br><br>
-        <input type="submit" value="Enviar">
+    <div class="container">
+        <form action="/resultados" method="post">
+            <h2>Encuesta de Uso del Agua</h2>
 
-</form>
+            <label for="nombre">Nombre/Apodo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="ciudad">¿Dónde vivís?</label>
+            <select id="ciudad" name="ciudad" required>
+                <option value="" disabled selected>Selecciona tu ciudad</option>
+                <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+                <option value="bsas">Bs.As.</option>
+                <option value="catamarca">Catamarca</option>
+                <option value="chaco">Chaco</option>
+                <option value="chubut">Chubut</option>
+                <option value="cordoba">Córdoba</option>
+                <option value="corrientes">Corrientes</option>
+                <option value="entrerios">Entre Ríos</option>
+                <option value="formosa">Formosa</option>
+                <option value="jujuy">Jujuy</option>
+                <option value="lapampa">La Pampa</option>
+                <option value="larioja">La Rioja</option>
+                <option value="mendoza">Mendoza</option>
+                <option value="misiones">Misiones</option>
+                <option value="neuquen">Neuquén</option>
+                <option value="rionegro">Río Negro</option>
+                <option value="salta">Salta</option>
+                <option value="sanjuan">San Juan</option>
+                <option value="sanluis">San Luis</option>
+                <option value="santacruz">Santa Cruz</option>
+                <option value="santafe">Santa Fe</option>
+                <option value="santiago">Santiago del Estero</option>
+                <option value="tierradelfuego">Tierra del Fuego</option>
+                <option value="tucuman">Tucumán</option>
+            </select>
+
+            <label for="vivienda">En tu vivienda, ¿qué tipo de canilla tenes?</label>
+            <div class="radio-group" id="vivienda">
+                <label><input type="radio" name="canilla" value="foto1" required> Foto 1</label>
+                <label><input type="radio" name="canilla" value="foto2"> Foto 2</label>
+            </div>
+
+            <label for="ducha">¿Cuántos minutos tardas en ducharte?</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('ducha', -1)">-</button>
+                <input type="number" id="ducha" name="ducha" value="10" min="0" required>
+                <button type="button" onclick="modifyValue('ducha', 1)">+</button>
+            </div>
+
+            <label for="manos">¿Cuántos minutos dejas abierta la canilla cuando te lavas las manos?</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('manos', -1)">-</button>
+                <input type="number" id="manos" name="manos" value="5" min="0" required>
+                <button type="button" onclick="modifyValue('manos', 1)">+</button>
+            </div>
+
+            <label>Cuando te lavas los dientes… ¿cerras la canilla?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="dientes" value="si" required> Si</label>
+                <label><input type="radio" name="dientes" value="no"> No</label>
+            </div>
+
+            <label>A la hora de lavar los platos…</label>
+            <div class="radio-group">
+                <label><input type="radio" name="platos" value="1" required> Abro y cierro la canilla</label>
+                <label><input type="radio" name="platos" value="2"> Dejo abierta la canilla ya que es más fácil</label>
+                <label><input type="radio" name="platos" value="3"> Tengo lavavajilla</label>
+            </div>
+
+            <label for="lavarropas">¿Cuántos lavarropas usas a la semana?</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('lavarropas', -1)">-</button>
+                <input type="number" id="lavarropas" name="lavarropas" value="1" min="0" required>
+                <button type="button" onclick="modifyValue('lavarropas', 1)">+</button>
+            </div>
+
+            <label>¿En la mochila de tu inodoro tenes la opción de doble descarga?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="descarga" value="si" required> Si</label>
+                <label><input type="radio" name="descarga" value="no"> No</label>
+            </div>
+
+            <label>¿Tienes pérdidas de agua en las canillas de tu hogar?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="perdidas" value="si" required> Si</label>
+                <label><input type="radio" name="perdidas" value="no"> No</label>
+            </div>
+
+            <label for="coche">Si tenes coche… ¿cuántas veces lo lavas al mes?</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('coche', -1)">-</button>
+                <input type="number" id="coche" name="coche" value="0" min="0" required>
+                <button type="button" onclick="modifyValue('coche', 1)">+</button>
+            </div>
+
+            <label for="ropa">Si hablamos de comprar ropa ¿Cuántas prendas te compras al año?</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('ropa', -1)">-</button>
+                <input type="number" id="ropa" name="ropa" value="12" min="0" required>
+                <button type="button" onclick="modifyValue('ropa', 1)">+</button>
+            </div>
+
+            <label>Alimentación - Indicar el consumo de carne a la semana</label>
+            <div class="meat-consumption">
+                <div class="meat-item">
+                    <img src="foto3.jpg" alt="Carne de vaca">
+                    <div class="number-input">
+                        <button type="button" onclick="modifyValue('vaca', -1)">-</button>
+                        <input type="number" id="vaca" name="vaca" value="0" min="0" required>
+                        <button type="button" onclick="modifyValue('vaca', 1)">+</button>
+                    </div>
+                </div>
+                <div class="meat-item">
+                    <img src="foto4.jpg" alt="Carne de pollo">
+                    <div class="number-input">
+                        <button type="button" onclick="modifyValue('pollo', -1)">-</button>
+                        <input type="number" id="pollo" name="pollo" value="0" min="0" required>
+                        <button type="button" onclick="modifyValue('pollo', 1)">+</button>
+                    </div>
+                </div>
+                <div class="meat-item">
+                    <img src="foto5.jpg" alt="Carne de cerdo">
+                    <div class="number-input">
+                        <button type="button" onclick="modifyValue('cerdo', -1)">-</button>
+                        <input type="number" id="cerdo" name="cerdo" value="0" min="0" required>
+                        <button type="button" onclick="modifyValue('cerdo', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="static\js\scripts.js"></script>
 </body>
 </html>
