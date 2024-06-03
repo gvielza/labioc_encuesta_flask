@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+</head>
+<body>
+ <h1>Hola {{ usuario }} con dni: {{dni}}</h1>
+    <p>Se guardó correctamente en la base de datos</p>
+    <a href="/">Volver a la página de inicio con html</a>
+    <br>
+    <a href="{{url_for("index")}}">Volver a la página de inicio con flask</a>
+
+<h2>Lista de Clientes</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente[0] }}</td>
+                    <td>{{ cliente[1] }}</td>
+                    <td>{{ cliente[2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
