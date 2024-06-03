@@ -5,30 +5,20 @@
     <title>Resultados</title>
 </head>
 <body>
- <h1>Hola {{ usuario }} con dni: {{dni}}</h1>
-    <p>Se guardó correctamente en la base de datos</p>
-    <a href="/">Volver a la página de inicio con html</a>
-    <br>
-    <a href="{{url_for("index")}}">Volver a la página de inicio con flask</a>
+ <h1>Hola {{ nombre }} eres de {{ ciudad }}</h1>
+ <p>La canilla que tenes es {{ canilla }}.</p>
+ <p>El tiempo de ducha es de {{ ducha }} minutos.</p>
+ <p>El tiempo de las manos es de {{ manos }} minutos.</p>
+ <p>El tiempo de los dientes es de {{ dientes }} minutos.</p>
+ <p>El tiempo de los platos es de {{ platos }} minutos.</p>
+ <p>El tiempo de los lavarropas es de {{ lavarropas }} minutos.</p>
+ <p>El tiempo de la descarga es de {{ descarga }} minutos.</p>
+ <p>El tiempo de las perdidas es de {{ perdidas }} minutos.</p>
+ <p>El tiempo de los coches es de {{ coche }} veces al mes.</p>
+ <p>La ropa que tenes es {{ ropa }}.</p>
+ <p>La vaca que tenes es {{ vaca }}.</p>
+ <p>El pollo que tenes es {{ pollo }}.</p>
+ <p>El cerdo que tenes es {{ cerdo }}.</p>
 
-<h2>Lista de Clientes</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>DNI</th>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in clientes %}
-                <tr>
-                    <td>{{ cliente[0] }}</td>
-                    <td>{{ cliente[1] }}</td>
-                    <td>{{ cliente[2] }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
 </body>
 </html>
