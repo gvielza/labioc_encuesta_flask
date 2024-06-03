@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+
     return render_template('index.html')
 
 
@@ -36,10 +37,18 @@ def resultados():
     #conexion.agregar_cliente(dni,usuario,contrasenna)
     clientes = conexion.mostrar_clientes()
     conexion.cerrar_conexion()
-    return render_template('resultados.html', nombre=nombre,ciudad=ciudad,canilla=canilla,ducha=ducha
+    return render_template('resultados.html', nombre=nombre,ciudad=ciudad,canilla=canilla,
+                           ducha=ducha
                            ,manos=manos,dientes=dientes,platos=platos,lavarropas=lavarropas,descarga=descarga,
                            perdidas=perdidas,coche=coche,ropa=ropa,vaca=vaca,pollo=pollo,cerdo=cerdo)
 
+@app.route('/nombre_provincia',methods=['GET'])
+def nombre_provincia():
+    return render_template('nombre_provincia.html')
+@app.route('/nombre1', methods=['POST'])
+def nombre1():
+    nombre1=request.form['nombre1']
+    return render_template('index.html', nombre1=nombre1)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

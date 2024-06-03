@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de la Huello Hídrica </title>
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
 </head>
 <body>
     <div class="container">
         <form action="/resultados" method="post">
-            <h2>Encuesta de Uso del Agua</h2>
+            <h2>Calculadora de la Huello Hídrica</h2>
 
             <label for="nombre">Nombre/Apodo:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -44,9 +44,11 @@
             </select>
 
             <label >En tu vivienda, ¿qué tipo de canilla tenes?</label>
-            <div class="radio-group" >
-                <label><input type="radio" name="canilla" value="foto1" > Foto 1</label>
-                <label><input type="radio" name="canilla" value="foto2"> Foto 2</label>
+            <div class="radio-images" >
+                <label><input type="radio" name="canilla" value="foto1" >
+                    <img src="{{ url_for('static', filename='img/foto1.jpg') }}" alt="" srcset=""></label>
+                <label><input type="radio" name="canilla" value="foto2">
+                <img src="{{ url_for('static', filename='img/foto2.jpg') }}" alt="" srcset=""></label>
             </div>
 
             <label for="ducha">¿Cuántos minutos tardas en ducharte?</label>
@@ -112,7 +114,8 @@
             <label>Alimentación - Indicar el consumo de carne a la semana</label>
             <div class="meat-consumption">
                 <div class="meat-item">
-                    <img src="foto3.jpg" alt="Carne de vaca">
+
+                    <img src="{{ url_for('static', filename='img/vaca.png')}}" alt="Carne de vaca">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('vaca', -1)">-</button>
                         <input type="number" id="vaca" name="vaca" value="0" min="0" >
@@ -120,7 +123,7 @@
                     </div>
                 </div>
                 <div class="meat-item">
-                    <img src="foto4.jpg" alt="Carne de pollo">
+                    <img src="{{ url_for('static', filename='img/pollo.png')}}" alt="Carne de pollo">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('pollo', -1)">-</button>
                         <input type="number" id="pollo" name="pollo" value="0" min="0" >
@@ -128,7 +131,7 @@
                     </div>
                 </div>
                 <div class="meat-item">
-                    <img src="foto5.jpg" alt="Carne de cerdo">
+                    <img src="{{ url_for('static', filename='img/cerdo.png')}}" alt="Carne de cerdo">
                     <div class="number-input">
                         <button type="button" onclick="modifyValue('cerdo', -1)">-</button>
                         <input type="number" id="cerdo" name="cerdo" value="0" min="0" >
@@ -140,6 +143,6 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
-    <script src="static\js\scripts.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
