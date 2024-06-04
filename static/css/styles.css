@@ -113,7 +113,7 @@ width: 95%;
     margin-bottom: 20px;  /* Ajusta el espacio debajo de la imagen si es necesario */
 }
 
-#logo {
+#logo,#logo2 {
     width: 100px;
     height: auto;
     border-radius:70%;
@@ -164,4 +164,12 @@ text-shadow: 1px 1px 2px #8ebdb6;
 #resultado-imagen {
     max-width: 350px;  /* Ajusta el tamaño según sea necesario */
     margin-top: 20px;
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Adjust the width for mobile devices */
+        margin: 10px; /* Ensure proper spacing on mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
 }

@@ -160,16 +160,22 @@
                 </div>
             </div>
             <label for="frutas" class="label">Indicar el consumo en kg de frutas por semana</label>
+            <div class="meat-item">
+                <img src="{{ url_for('static', filename='img/fruta.png')}}" alt="Frutas">
             <div class="number-input">
                 <button type="button" onclick="modifyValue('frutas', -1)">-</button>
                 <input type="number" id="frutas" name="frutas" value="0" min="0" required>
                 <button type="button" onclick="modifyValue('frutas', 1)">+</button>
             </div>
+            </div>
             <label for="verduras" class="label">Indicar el consumo en kg de verduras por semana</label>
+            <div class="meat-item">
+                <img src="{{ url_for('static', filename='img/verduras.png')}}" alt="Verduras">
             <div class="number-input">
                 <button type="button" onclick="modifyValue('verduras', -1)">-</button>
                 <input type="number" id="verduras" name="verduras" value="0" min="0" required>
                 <button type="button" onclick="modifyValue('verduras', 1)">+</button>
+            </div>
             </div>
 
             <button type="submit">Enviar</button>
