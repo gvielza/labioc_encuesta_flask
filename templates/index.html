@@ -17,6 +17,15 @@
             <label for="nombre" class="label">Nombre/Apodo:</label>
             <input type="text" id="nombre" name="nombre" required>
 
+            <label class="label">Rango de edad</label>
+            <div class="radio-edad" >
+                <label><input type="radio" name="edad" value="014" required>0-14</label>
+                <label><input type="radio" name="edad" value="1524">15-24     </label>
+                <label><input type="radio" name="edad" value="2535">25-35     </label>
+                <label><input type="radio" name="edad" value="3655">36-55    </label>
+                <label><input type="radio" name="edad" value="56">+56  </label>
+            </div>
+
             <label for="ciudad" class="label">¿Dónde vivís?</label>
             <select id="ciudad" name="ciudad" required>
                 <option value="" disabled selected>Selecciona tu ciudad</option>
@@ -149,6 +158,18 @@
                         <button type="button" onclick="modifyValue('cerdo', 1)">+</button>
                     </div>
                 </div>
+            </div>
+            <label for="frutas" class="label">Indicar el consumo en kg de frutas por semana</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('frutas', -1)">-</button>
+                <input type="number" id="frutas" name="frutas" value="0" min="0" required>
+                <button type="button" onclick="modifyValue('frutas', 1)">+</button>
+            </div>
+            <label for="verduras" class="label">Indicar el consumo en kg de verduras por semana</label>
+            <div class="number-input">
+                <button type="button" onclick="modifyValue('verduras', -1)">-</button>
+                <input type="number" id="verduras" name="verduras" value="0" min="0" required>
+                <button type="button" onclick="modifyValue('verduras', 1)">+</button>
             </div>
 
             <button type="submit">Enviar</button>

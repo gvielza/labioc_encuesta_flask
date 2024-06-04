@@ -3,44 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Resultados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
 </head>
 <body>
-{{ nombre1 }}
- <h1>Hola {{ nombre }} eres de {{ ciudad }}</h1>
- <p>La canilla que tenes es {{ canilla }}.</p>
- <p>El tiempo de ducha es de {{ ducha }} minutos.</p>
- <p>El tiempo de las manos es de {{ manos }} minutos.</p>
- <p>El tiempo de los dientes es de {{ dientes }} minutos.</p>
- <p>El tiempo de los platos es de {{ platos }} minutos.</p>
- <p>El tiempo de los lavarropas es de {{ lavarropas }} minutos.</p>
- <p>El tiempo de la descarga es de {{ descarga }} minutos.</p>
- <p>El tiempo de las perdidas es de {{ perdidas }} minutos.</p>
- <p>El tiempo de los coches es de {{ coche }} veces al mes.</p>
- <p>La ropa que tenes es {{ ropa }}.</p>
- <p>La vaca que tenes es {{ vaca }}.</p>
- <p>El pollo que tenes es {{ pollo }}.</p>
- <p>El cerdo que tenes es {{ cerdo }}.</p>
-<p>vereda : {{ vereda }}</p>
+<div id="container" style="margin-top: 20px;">
+<div class="image-container">
+        <img src="{{ url_for('static', filename='img/labioc.png') }}" alt="Logo de Labioc" id="logo">
+    </div><br>
 
-<h2>Lista de Usuarios</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>nombre</th>
-                <th>ciudad</th>
+ <h1 class="label">Hola {{ nombre }}, consumis aproximadamente {{ litros_f }} litros de agua por año.</h1>
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for usuario in usuarios %}
-                <tr>
-                    <td>{{ usuario[0] }}</td>
-                    <td>{{ usuario[1] }}</td>
-
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+<p>El promedio mundial es de 1.240.000 litros/año.</p>
+<h3>{{ mensaje }}</h3>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='img/' ~ imagen) }}" alt="Resultado" id="resultado-imagen">
+    </div>
+</div>
 </body>
 </html>

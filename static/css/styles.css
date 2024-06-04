@@ -146,3 +146,22 @@ width: 95%;
 .label{
 text-shadow: 1px 1px 2px #8ebdb6;
 }
+.radio-edad label {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.radio-edad input[type="radio"] {
+    margin-right: 5px;
+}
+.image-container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100px;  /* Ajusta el tamaño según sea necesario */
+}
+
+#resultado-imagen {
+    max-width: 350px;  /* Ajusta el tamaño según sea necesario */
+    margin-top: 20px;
+}
