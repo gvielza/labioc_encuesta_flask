@@ -1,12 +1,13 @@
 /* styles.css */
 body, html {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #D7F7F3;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction:column;
 
 }
 
@@ -17,7 +18,7 @@ body, html {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 900px;
-    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    margin-top: 20px;
 }
 
 
@@ -102,6 +103,9 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
+button:hover {
+    background-color: #0056b3;
+}
 #nombre{
 width: 95%;
 }
@@ -110,7 +114,7 @@ width: 95%;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;  /* Ajusta el espacio debajo de la imagen si es necesario */
+    margin-bottom: 20px;
 }
 
 #logo,#logo2 {
@@ -133,7 +137,7 @@ width: 95%;
 }
 
 .radio-images img {
-    width: 100px;  /* Ajusta el tamaño según sea necesario */
+    width: 100px;
     height: auto;
     border-radius: 8px;
     border: 2px solid transparent;
@@ -141,7 +145,7 @@ width: 95%;
 }
 
 .radio-images input[type="radio"]:checked + img {
-    border-color: #007bff;  /* Color del borde cuando está seleccionado */
+    border-color: #007bff;
 }
 .label{
 text-shadow: 1px 1px 2px #8ebdb6;
@@ -158,18 +162,24 @@ text-shadow: 1px 1px 2px #8ebdb6;
 .image-container img {
     display: block;
     margin: 0 auto;
-    max-width: 100px;  /* Ajusta el tamaño según sea necesario */
+    max-width: 100px;
 }
 
 #resultado-imagen {
-    max-width: 350px;  /* Ajusta el tamaño según sea necesario */
+    max-width: 350px;
     margin-top: 20px;
 }
 /* Responsive Design */
 @media (max-width: 600px) {
     .container {
-        width: 95%; /* Adjust the width for mobile devices */
-        margin: 10px; /* Ensure proper spacing on mobile */
-        padding: 15px; /* Adjust padding for mobile */
+        width: 80%;
+        margin: 10px;
+        padding: 15px;
     }
+}
+footer{
+margin-top:20px;
+margin-bottom:20px;
+font-family:cursive;
+
 }
