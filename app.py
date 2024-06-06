@@ -112,7 +112,11 @@ def resultados():
     conexion.cerrar_conexion()
     return render_template('resultados.html', nombre=nombre, litros_f=litros_f, mensaje=mensaje,imagen=imagen)
 
-
+@app.route("/registros")
+def registros():
+    conexion = Conexion("base_datos/usuarios.db")
+    usuarios=conexion.mostrar_usuarios()
+    return render_template('registros.html',usuarios=usuarios)
 
 if __name__ == '__main__':
     app.run()
